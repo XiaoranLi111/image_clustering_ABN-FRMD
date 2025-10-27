@@ -16,7 +16,7 @@ allc = [10];
 for i = 1 : length(allc)
     nCluster = allc(i);
 
-    all_time_costs = [];  % 初始化时间记录数组
+    all_time_costs = []; 
 
     lambda1all =  [1e-8 1e-7 1e-6 1e-5 1e-4 1e-3];
     for iparas1 = 1  : length(lambda1all)
@@ -73,7 +73,7 @@ for i = 1 : length(allc)
             end
             W = L;
 
-%             % 使用 RLMF 函数进行双线性分解
+
 %             [n1, n2] = size(data); 
 %             opts.lambdal1 = 8 * sqrt(max(n1, n2)); 
 %             opts.rank = 24; 
@@ -82,11 +82,9 @@ for i = 1 : length(allc)
 %             opts.tol = 1e-3; 
 %             [U, V] = RLMF(data, ones(size(data,1),1), opts); 
 % 
-%             % 将特征向量矩阵转换为新的特征空间
 %             data_new = data * V';
             
     
-            % --- 使用 h_snmf_l1 计算 H 矩阵 ---
             W_init = fea(1:d,:);
             H_init = W;
             tic;
