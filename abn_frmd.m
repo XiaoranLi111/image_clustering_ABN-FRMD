@@ -1,6 +1,5 @@
 function  [Z, value, Lr] = ABN_FRMD(X,A, p,lambda,lambda0,rc,rho,para)
 
-
 if nargin < 10
     display = true;
 end
@@ -29,7 +28,6 @@ L = 0.5*R*R';
 Lr = L+para.elpson*eye(size(W1));
 
 
-%
 W = (lambda*Lr+p/2*lambda0*W1)*diag(W2);
 for t = 1 : maxiter
    Z = lyap(XtX,W,-XtD);
@@ -42,7 +40,6 @@ for t = 1 : maxiter
    W2 =  (E+mu^2).^(1-p/2);   
    W = (lambda*Lr+p/2*lambda0*W1)*diag(W2);  
    
-   % update mu
    mu = mu/rho; 
    
    value(t) = norm(Z_old-Z,'fro')/norm(Z,'fro');
