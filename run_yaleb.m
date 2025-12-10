@@ -98,7 +98,7 @@ for i = 1 : length(allc)
                 W2(:,ic) = H(:,ic)/(max(abs(H(:,ic)))+eps) ;
             end
   
-            groups = clustering(W2,max(gnd));
+            groups = clu(W2,max(gnd));
             [ACC, NMI, PUR] = ClusteringMeasure(gnd,groups);
 
             disp([' lambda2 = ' num2str(lambda2), ' choosecluster = ' num2str(nCluster), ' acc = ' num2str(ACC*100), ' nmi = ' num2str(NMI*100), ' PUR= ' num2str(PUR*100), ' time= ' num2str(time_cost)]);
@@ -119,3 +119,4 @@ for i = 1 : length(allc)
     eval(['save accABN_FRMDYaleB_' num2str(nCluster) ' accABN_FRMDYaleB_' num2str(nCluster)]);
 
 end
+
